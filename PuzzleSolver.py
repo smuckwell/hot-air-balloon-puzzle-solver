@@ -9,7 +9,11 @@ class Logger:
 
     def __init__(self):
         self.log_threshold = self.MESSAGE
-        self.logOutput(self.ALL, 'Created Logger instance, logging threshold is ' + self.getDebugLevelString(self.log_threshold) + ' level messages.')
+        self.logOutput(self.ALL, 'Created Logger instance, logging threshold is ' + self.getDebugLevelString(self.log_threshold) + ' level messages.')        
+
+    def logOutput (self, level, statement):
+        if level >= self.log_threshold:
+            print (self.getDebugLevelString(level) + '|' + strftime("%Y-%m-%d %H:%M:%S") + '|' + statement + levelValue)
 
     def getDebugLevelString(self, threshold):
         if threshold == self.ALL:
@@ -25,10 +29,6 @@ class Logger:
         else:
             debug_level = 'UNDEFINED!'
         return debug_level
-
-    def logOutput (self, level, statement):
-        if level >= self.log_threshold:
-            print self.getDebugLevelString(level) + '|' + strftime("%Y-%m-%d %H:%M:%S") + '|' + statement
 
 class LoggableBaseClass:
     def setLogger(self, logger):
