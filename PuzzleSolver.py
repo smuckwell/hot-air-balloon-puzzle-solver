@@ -13,7 +13,7 @@ class Logger:
 
     def logOutput (self, level, statement):
         if level >= self.log_threshold:
-            print (self.getDebugLevelString(level) + '|' + strftime("%Y-%m-%d %H:%M:%S") + '|' + statement + levelValue)
+            print (self.getDebugLevelString(level) + '|' + strftime("%Y-%m-%d %H:%M:%S") + '|' + statement)
 
     def getDebugLevelString(self, threshold):
         if threshold == self.ALL:
